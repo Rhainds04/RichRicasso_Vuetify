@@ -15,3 +15,16 @@
               </div>
             </v-card>
 </template>
+
+<script>
+export default {
+  name: 'RichRicassoCard',
+  // component logic
+};
+</script>
+
+<style>
+.font-size-1{
+    font-size: 18px;
+}
+</style>
