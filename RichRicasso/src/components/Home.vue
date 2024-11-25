@@ -1,11 +1,9 @@
 <script>
 import RichRicassoCard from './RichRicassoCard.vue';
-import Carousel from './Carousel.vue';
 
 export default {
   components: {
     RichRicassoCard,
-    Carousel
   },
 };
 </script>
@@ -16,12 +14,10 @@ export default {
     <v-main class="mainContainer">
       <v-container class="fill-height">
         <v-col class="justify-center d-flex flex-column">
-          <v-row class="pa-5" style="width: 100%; margin: 0 auto;">
-            <RichRicassoCard/>
+          <v-row class="pa-5" style="width: 100%; margin: 0 auto">
+            <RichRicassoCard />
           </v-row>
-          <v-row class="pa-5" style="width: 100%; margin: 0 auto;">
-            <Carousel/>
-          </v-row>
+          <!--<v-row class="pa-5" style="width: 100%; margin: 0 auto;"></v-row>-->
           <v-row class="pa-5" style="width: 100%; margin: 0 auto;">
             <v-card class="pa-5" style="width: 100%;">
               <h2>Collection Vaporwave</h2>
