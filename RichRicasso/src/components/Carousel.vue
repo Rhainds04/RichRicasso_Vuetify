@@ -10,12 +10,13 @@ const config = {
 
 // Array of image URLs
 const images = [
-  'https://via.placeholder.com/200x200?text=Image+1',
-  'https://via.placeholder.com/200x200?text=Image+2',
-  'https://via.placeholder.com/200x200?text=Image+3',
-  'https://via.placeholder.com/200x200?text=Image+4',
-  'https://via.placeholder.com/200x200?text=Image+5',
+  '/Images/shirt1.png',
+  '/Images/shirt2.png',
+  '/Images/shirt3.png',
+  '/Images/shirt4.png',
+  '/Images/shirt5.png',
 ];
+
 </script>
 
 <template>
