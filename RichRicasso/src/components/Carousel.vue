@@ -44,7 +44,7 @@ const images = [
   }
   
   .carousel__image {
-    width: 100%;
+    width: 90%;
     height: auto;
     border-radius: 8px;
   }
