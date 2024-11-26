@@ -31,10 +31,6 @@ export default {
         </v-col>
       </v-container>
     </v-main>
-
-    <!-- Footer -->
-    <v-footer app color="primary" class="white--text"></v-footer>
-  </v-app>
 </template>
 
 <style scoped>
