@@ -21,6 +21,7 @@ const images = [
 
 <template>
     <v-card class="pa-5" style="width: 100%;">
+    <h2>Trending</h2>
       <Carousel v-bind="config">
         <Slide v-for="(image, index) in images" :key="index">
           <div class="carousel__item">

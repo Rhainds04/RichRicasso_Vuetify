@@ -1,12 +1,14 @@
 <script>
 import RichRicassoCard from './RichRicassoCard.vue';
 import Carousel from './Carousel.vue';
+import ImageGallery from './ImageGallery.vue';
 
 
 export default {
   components: {
     RichRicassoCard,
-    Carousel
+    Carousel,
+    ImageGallery
   },
 };
 </script>
@@ -24,10 +26,7 @@ export default {
             <Carousel/>
           </v-row>
           <v-row class="pa-5" style="width: 100%; margin: 0 auto;">
-            <v-card class="pa-5" style="width: 100%;">
-              <h2>Collection Vaporwave</h2>
-              <p>This is the third section.</p>
-            </v-card>
+              <ImageGallery/>
           </v-row>
         </v-col>
       </v-container>
