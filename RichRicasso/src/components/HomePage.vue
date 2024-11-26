@@ -31,6 +31,7 @@ export default {
         </v-col>
       </v-container>
     </v-main>
+  </v-app>
 </template>
 
 <style scoped>
