@@ -1,15 +1,10 @@
 <script>
-import RichRicassoCard from './RichRicassoCard.vue';
-import Carousel from './Carousel.vue';
-import ImageGallery from './ImageGallery.vue';
-
+import ProductsGallery from './ProductsGallery.vue';
 
 export default {
   components: {
-    RichRicassoCard,
-    Carousel,
-    ImageGallery
-  },
+    ProductsGallery,
+  }
 };
 </script>
 
@@ -17,8 +12,8 @@ export default {
   <v-app>
     <!-- Main Content -->
     <v-main class="mainContainer">
-      <v-container class="fill-height">
-
+      <v-container>
+        <ProductsGallery/>
       </v-container>
     </v-main>
 
