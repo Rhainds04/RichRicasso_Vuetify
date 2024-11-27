@@ -1,14 +1,19 @@
+<script setup>
+import { ref } from "vue";
+
+const drawerOpen = ref(true);
+</script>
+
 <template color="transparent">
-  <v-app-bar app flat>
-    <v-system-bar></v-system-bar>
+  <v-app-bar app flat color="primary">
     <v-app-bar-title>
       <v-btn class="text-none" stacked @click="drawerOpen = !drawerOpen">
         <v-icon v-if="drawerOpen" icon="mdi-menu-open"></v-icon>
         <v-icon v-else icon="mdi-menu"></v-icon>
       </v-btn>
-
-      <!-- <v-avatar image="/favicon.ico" rounded="0" /> -->
-      RichRicasso
+      <router-link to="/" style="text-decoration: none; color: white;">
+        RichRicasso
+      </router-link>
     </v-app-bar-title>
     <template v-slot:append>
       <v-btn class="text-none">
@@ -24,6 +29,7 @@
     @click="drawerOpen = false"
     app
     location="left"
+    color="secondary"
   >
     <v-list>
       <v-list-item title="Home" to="/"></v-list-item>
@@ -34,8 +40,5 @@
   </v-navigation-drawer>
 </template>
 
-<script setup>
-import { ref } from "vue";
-
-const drawerOpen = ref(true);
-</script>
+<style scoped>
+</style>
