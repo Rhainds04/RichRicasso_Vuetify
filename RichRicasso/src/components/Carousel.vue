@@ -19,7 +19,6 @@ const images = [
 </script>
 
 <template>
-  <!-- Installer carousel dans le cmd  npm install vue-carousel-->
   <v-card class="pa-5" style="width: 100%">
     <Carousel v-bind="config">
       <Slide v-for="(image, index) in images" :key="index">

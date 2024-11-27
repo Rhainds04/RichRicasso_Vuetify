@@ -5,10 +5,10 @@ export default {
 };
 </script>
 <template>
-    <v-card class="pa-5" style="width: 100%;">
-              <div class="d-flex">
+    <v-card class="pa-5 responsive-card" style="width: 100%;">
+              <div class="d-flex responsive-layout">
                 <div>
-                  <img src="/Images/RichRicasso.png" style="width: 300px;" alt="RichRicasso">
+                  <img src="/Images/RichRicasso.png" class="responsive-img" alt="RichRicasso">
                 </div>
                 <div class="pa-5">
                   <h1>Qui est Rich Ricasso</h1>
@@ -24,5 +24,36 @@ export default {
 <style>
 .font-size-1{
     font-size: 18px;
+}
+
+.responsive-card {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.responsive-img {
+    width: 100%;
+    max-width: 500px;
+    min-width: 300px;
+    height: auto;
+}
+
+.responsive-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .responsive-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media(max-width: 400px){
+  .responsive-img{
+    max-width: 100%;
+  }
 }
 </style>
