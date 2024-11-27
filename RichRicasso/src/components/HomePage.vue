@@ -31,6 +31,11 @@ export default {
         </v-col>
       </v-container>
     </v-main>
+
+    <!--Footer-->
+    <v-footer>
+      
+    </v-footer>
   </v-app>
 </template>
 
