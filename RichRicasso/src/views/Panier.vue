@@ -1,16 +1,17 @@
 <!-- TODO: corriger cecu plus tard -->
-<!-- <template>
+<template>
   <v-container
     fluid
     class="d-flex flex-column flex-md-row flex-start overflow-auto"
   >
-    <v-btn @click="store.deleteCart()" color="error" class="ma-1">
+    <!-- TODO: btn pour effacer tout les produits du panier -->
+    <!-- <v-btn @click="store.deleteCart()" color="error" class="ma-1">
       Supprimer le panier
-    </v-btn>
+    </v-btn> -->
 
     <div class="d-flex flex-column flex-md-row flex-wrap flex-start ga-3">
-      <div v-for="(pokeID, index) in store.panier" :key="pokeID">
-        <Pokemon :pokemonID="pokeID" :catchable="false" :key="pokeID" />
+      <div v-for="(produitID, index) in store.panier" :key="pokeID">
+        <Produit :produitID="produitID" :ajouter="false" yes :key="pokeID" />
         <v-btn color="secondary" @click="removeFromCart(index)"
           >Supprimer du panier</v-btn
         >
@@ -21,7 +22,7 @@
 
 <script setup>
 import { useAppStore } from "@/store/app";
-import Pokemon from "@/components/Produit.vue";
+import Produit from "@/components/ProductsGallery.vue";
 
 const store = useAppStore();
 
@@ -31,4 +32,4 @@ function removeFromCart(idx) {
 }
 </script>
 
-<style scoped></style> -->
+<style scoped></style>

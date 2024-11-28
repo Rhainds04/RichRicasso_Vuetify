@@ -19,7 +19,7 @@ const drawerOpen = ref(true);
     </v-app-bar-title>
     <template v-slot:append>
       <!-- TODO: panier -->
-      <v-btn class="text-none" stacked to="/Panier">
+      <v-btn class="text-none" stacked to="/panier">
         <!-- <v-btn class="text-none"> -->
         <!-- <v-badge color="red" class="rounded ma-1"> -->
         <v-badge
