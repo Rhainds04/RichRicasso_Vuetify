@@ -9,9 +9,7 @@ export const fetchRandomPokemon = async () => {
 
 export const fetchPokemon = async (id) => {
   try {
-    const response = await fetch(
-      `http://localhost:4208/api/utilisateurs/${id}`
-    );
+    const response = await fetch(`http://localhost:4208/api/produits/${id}`);
     const data = await response.json();
     console.log("DB 88777RAND:", data);
     return new Produit(data);
@@ -22,7 +20,7 @@ export const fetchPokemon = async (id) => {
 
 export const fetchPokemons = async () => {
   try {
-    const response = await fetch(`http://localhost:4208/api/utilisateurs`);
+    const response = await fetch(`http://localhost:4208/api/produits`);
     const data = await response.json();
     console.log("DB 88777RAND:", data);
     return data;
