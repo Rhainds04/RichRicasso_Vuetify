@@ -63,7 +63,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-//import { useAppStore } from "@/store/app";
+import { useAppStore } from "@/store/app";
 //import Pokemon from "@/components/Produit.vue";
 import Produit from "@/components/Produit.vue";
 import { fetchPokemons } from "@/services/produits.service";
@@ -83,7 +83,7 @@ onMounted(async () => {
 // Store
 
 //TODO: Augmenter la quantite dans le store
-/*
+
 const store = useAppStore();
 
 const addToCart = (id) => {
@@ -91,7 +91,6 @@ const addToCart = (id) => {
   store.addToCart(id);
   // console.log("DB 558: ");
 };
-*/
 
 //const pokemonRandomSeed = ref(1);
 

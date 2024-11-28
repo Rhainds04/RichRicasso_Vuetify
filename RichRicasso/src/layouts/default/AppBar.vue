@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "vue";
-//import { useAppStore } from "@/store/app";
+import { useAppStore } from "@/store/app";
 
-//const store = useAppStore();
+const store = useAppStore();
 const drawerOpen = ref(true);
 </script>
 
@@ -19,14 +19,14 @@ const drawerOpen = ref(true);
     </v-app-bar-title>
     <template v-slot:append>
       <!-- TODO: panier -->
-      <!-- <v-btn class="text-none" stacked to="/Panier"> -->
-      <v-btn class="text-none">
-        <v-badge color="red" class="rounded ma-1">
-          <!-- <v-badge
+      <v-btn class="text-none" stacked to="/Panier">
+        <!-- <v-btn class="text-none"> -->
+        <!-- <v-badge color="red" class="rounded ma-1"> -->
+        <v-badge
           :content="store.panier.length"
           color="red"
           class="rounded ma-1"
-        > -->
+        >
           <v-icon icon="mdi-cart-outline"></v-icon>
         </v-badge>
       </v-btn>
