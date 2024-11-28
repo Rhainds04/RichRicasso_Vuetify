@@ -48,8 +48,8 @@
       >
         <v-fab-transition group>
           <Produit
-            v-for="i in sliderValue"
-            :produitID="i"
+            v-for="produit in produits"
+            :produitID="produit.id"
             :ajouter="true"
             @ajouter="addToCart"
             :key="i"
@@ -66,22 +66,32 @@ import { ref, onMounted } from "vue";
 //import { useAppStore } from "@/store/app";
 //import Pokemon from "@/components/Produit.vue";
 import Produit from "@/components/Produit.vue";
+import { fetchPokemons } from "@/services/produits.service";
 
-onMounted(() => {});
+const produits = ref([]);
+//Fetch tous les produuits pour apres les envoyer un a la fois au Pokemon.vue
+onMounted(async () => {
+  console.log("Fetch de tous les pokemons");
+
+  try {
+    produits.value = await fetchPokemons();
+  } catch (error) {
+    console.log("Erreur au moment de recuper tous les pokemons");
+  }
+});
 
 // Store
 
 //TODO: Augmenter la quantite dans le store
 /*
-  const store = useAppStore();
-  
-  const addToCart = (id) => {
-    console.log("DB 88: ", id);
-    store.addToCart(id);
-    // console.log("DB 558: ");
-  };
-  */
-//
+const store = useAppStore();
+
+const addToCart = (id) => {
+  console.log("DB 88: ", id);
+  store.addToCart(id);
+  // console.log("DB 558: ");
+};
+*/
 
 //const pokemonRandomSeed = ref(1);
 

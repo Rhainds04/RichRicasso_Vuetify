@@ -3,7 +3,7 @@
     :id="props.produitID"
     v-if="produit.name"
     class="mx-auto"
-    width="180"
+    width="250"
     elevation="12"
     outlined
   >
@@ -11,7 +11,7 @@
       <v-img
         class="white--text align-end"
         height="200px"
-        :src="`../../public/${produit.image}`"
+        :src="`public/${produit.image}`"
         :alt="`Image de ${produit.name}`"
       >
       </v-img>
@@ -31,7 +31,7 @@
     -->
       <v-btn
         v-if="caught ? false : true"
-        class="bg-red-accent-4"
+        class="bg-purple-accent-4"
         @click="
           $emit('ajouter', produit.id);
           ajouter = true;
@@ -39,6 +39,7 @@
       >
         Ajouter
       </v-btn>
+      <v-btn class="bg-purple-accent-4"> Voir </v-btn>
     </v-card-actions>
   </v-card>
   <v-skeleton-loader
@@ -52,10 +53,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import {
-  fetchPokemon,
-  fetchRandomPokemon,
-} from "@/services/produits.service.js";
+import { fetchPokemon } from "@/services/produits.service.js";
 
 const props = defineProps(["produitID", "ajouter"]);
 defineEmits(["ajouter"]);
@@ -71,12 +69,6 @@ onMounted(() => {
 
   if (!props.produitID) {
     // Si pokeID est est undeifned
-  } else if (props.produitID === "random") {
-    //Changer la fonction fetchRandomPokemon
-    fetchRandomPokemon().then((data) => {
-      console.log("DB RAND 111", data);
-      produit.value = data;
-    });
   } else {
     fetchPokemon(props.produitID).then((data) => {
       console.log(data);
