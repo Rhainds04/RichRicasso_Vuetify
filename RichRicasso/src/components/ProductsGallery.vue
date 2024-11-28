@@ -68,6 +68,7 @@ onMounted(() => {
 
   if (!props.produitID) {
     // Si pokeID est est undeifned
+    //ca affiche rien sauf le skellete
   } else {
     fetchPokemon(props.produitID).then((data) => {
       console.log(data);
