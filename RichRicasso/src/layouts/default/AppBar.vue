@@ -42,8 +42,7 @@ const drawerOpen = ref(true);
   >
     <v-list>
       <v-list-item title="Home" to="/"></v-list-item>
-      <v-list-item title="Produits" to="/products"></v-list-item>
-      <v-list-item title="ProduitsFetch" to="/produits"></v-list-item>
+      <v-list-item title="Produits" to="/produits"></v-list-item>
       <v-list-item title="Contact" to="/contact"></v-list-item>
       <v-list-item title="Connexion" to="/connexion"></v-list-item>
     </v-list>

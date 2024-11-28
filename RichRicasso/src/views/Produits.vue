@@ -1,47 +1,27 @@
+<script setup>
+import { ref, onMounted } from "vue";
+import { useAppStore } from "@/store/app";
+import Produit from "@/components/ProductsGallery.vue";
+import { fetchPokemons } from "@/services/produits.service";
+
+const produits = ref([]);
+//Fetch tous les produuits pour apres les envoyer un a la fois au Pokemon.vue
+onMounted(async () => {
+  console.log("Fetch de tous les pokemons");
+
+  try {
+    produits.value = await fetchPokemons();
+  } catch (error) {
+    console.log("Erreur au moment de recuper tous les pokemons");
+  }
+});
+</script>
+
 <template>
-  <v-content class="d-flex justify-start align-start flex-row w-100">
-    <!-- TODO: Code qui fais apparaitre le slider -->
-    <!-- <div class="slider d-flex flex-row">
-      <v-slider
-        v-model="sliderValue"
-        :min="minSliderValue"
-        :max="maxSliderValue"
-        :step="sliderStep"
-        direction="vertical"
-      >
-        <template v-slot:prepend>
-          <v-btn
-            size="small"
-            variant="text"
-            icon="mdi-minus"
-            @click="modifySlider('minus')"
-          ></v-btn>
-        </template>
-
-        <template v-slot:append>
-          <v-btn
-            size="small"
-            variant="text"
-            icon="mdi-plus"
-            @click="modifySlider('plus')"
-          ></v-btn>
-        </template>
-      </v-slider>
-    </div> -->
-
+  <v-content
+    class="d-flex justify-start align-start flex-row w-100 mainContainer"
+  >
     <div class="d-flex justify-center align-center flex-column w-100">
-      <!-- TODO: bouton qui changer les pokemon random -->
-      <!-- <v-btn
-        @click="
-          pokemonRandomSeed = Math.floor(
-            pokemonRandomSeed + Math.random() * 100
-          )
-        "
-        class="w-75 bg-red cursor-grab"
-      >
-        Attrapez des Pokemons
-      </v-btn> -->
-
       <v-container
         class="d-flex flex-row justify-start flex-wrap"
         :key="produitID"
@@ -91,28 +71,6 @@ const addToCart = (id) => {
   store.addToCart(id);
   // console.log("DB 558: ");
 };
-
-//const pokemonRandomSeed = ref(1);
-
-// Slider
-// const minSliderValue = 3;
-// const maxSliderValue = 7;
-// const sliderStep = 2;
-const sliderValue = ref(7);
-
-// const modifySlider = (op) => {
-//   if (op === "plus") {
-//     if (sliderValue.value === maxSliderValue) {
-//       return;
-//     }
-//     sliderValue.value += sliderStep;
-//   } else if (op === "minus") {
-//     if (sliderValue.value === minSliderValue) {
-//       return;
-//     }
-//     sliderValue.value -= sliderStep;
-//   }
-// };
 </script>
 
 <style scoped>
@@ -123,5 +81,12 @@ const sliderValue = ref(7);
 .slider >>> .v-slider {
   height: auto;
   width: 50px;
+}
+
+.mainContainer {
+  background-image: url("/Images/Mainbackground.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 </style>

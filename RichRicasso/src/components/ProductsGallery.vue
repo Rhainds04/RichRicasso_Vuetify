@@ -1,56 +1,79 @@
-<script>
-export default {
-  data() {
-    return {
-      images: [
-        '/StoreImages/shirt1.png',
-        '/StoreImages/shirt2.png',
-        '/StoreImages/shirt3.png',
-        '/StoreImages/shirt4.png',
-        '/StoreImages/shirt5.png',
-      ],
-    };
-  },
-};
-</script>
-
 <template>
-  <v-app>
-    <v-main>
-      <v-container>
-        <div class="card-container">
-          <v-card v-for="(image, index) in images" :key="index" class="card-item">
-            <v-img :src="image" aspect-ratio="1" class="bg-grey-lighten-2" cover></v-img>
-            <v-card-title>Card</v-card-title>
-            <v-card-text>
-              This is card number {{ index + 1 }}.
-            </v-card-text>
-          </v-card>
-        </div>
-      </v-container>
-    </v-main>
-  </v-app>
+  <v-card
+    :id="props.produitID"
+    v-if="produit.name"
+    class="mx-auto"
+    width="250"
+    elevation="12"
+    outlined
+  >
+    <v-expand-transition>
+      <v-img
+        class="white--text align-end"
+        height="200px"
+        :src="`public/${produit.image}`"
+        :alt="`Image de ${produit.name}`"
+      >
+      </v-img>
+    </v-expand-transition>
+    <v-card-title>{{ produit.name }}</v-card-title>
+    <v-card-subtitle> Taille: {{ produit.size }} </v-card-subtitle>
+    <v-card-text>Prix: {{ produit.price + "$" }}</v-card-text>
+    <v-card-actions>
+      <!-- TODO on pourait afficher les deux photos du produit -->
+      <!-- <v-btn v-if="recto" color="teal-accent-4" @click="recto = false"
+        >Verso</v-btn
+      >
+      <v-btn v-else color="deep-purple accent-4" @click="recto = true"
+        >Recto</v-btn
+      > 
+      <v-spacer></v-spacer>
+    -->
+      <v-btn
+        v-if="caught ? false : true"
+        class="bg-purple-accent-4"
+        @click="
+          $emit('ajouter', produit.id);
+          ajouter = true;
+        "
+      >
+        Ajouter
+      </v-btn>
+      <v-btn class="bg-purple-accent-4"> Voir </v-btn>
+    </v-card-actions>
+  </v-card>
+  <v-skeleton-loader
+    v-else
+    type="card, actions"
+    max-width="244"
+    height="372"
+    class="mx-auto"
+  ></v-skeleton-loader>
 </template>
 
-<style scoped>
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+<script setup>
+import { ref, onMounted } from "vue";
+import { fetchPokemon } from "@/services/produits.service.js";
 
-.card-item {
-  flex: 0 0 calc(25% - 16px); /* Fixed size: 4 cards per row */
-  max-width: calc(25% - 16px); /* Prevent stretching */
-  margin: 8px;
-}
+const props = defineProps(["produitID", "ajouter"]);
+defineEmits(["ajouter"]);
 
-@media (max-width: 600px) {
-  .card-item {
-    flex: 0 0 200px; /* Fixed width */
-    max-width: 200px; /* Prevent stretching */
-    height: 250px;    /* Fixed height */
+// const recto = ref(true);
+const caught = ref(!props.ajouter);
+
+let produit = ref({});
+
+onMounted(() => {
+  console.log("DB ID 111A", props.produitID);
+
+  if (!props.produitID) {
+    // Si pokeID est est undeifned
+  } else {
+    fetchPokemon(props.produitID).then((data) => {
+      console.log(data);
+      produit.value = data;
+    });
   }
-}
-</style>
-
+});
+</script>
+<style scoped></style>
