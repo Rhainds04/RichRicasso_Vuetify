@@ -21,6 +21,11 @@ const routes = [
         name: "Panier",
         component: () => import("@/views/Panier.vue"),
       },
+      {
+        path: "connexion",
+        name: "Connexion",
+        component: () => import("@/views/Connexion.vue"),
+      },
     ],
   },
 ];

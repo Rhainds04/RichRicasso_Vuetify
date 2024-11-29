@@ -6,6 +6,7 @@
     width="250"
     elevation="12"
     outlined
+    color="rgba(255,255,255,0.5)"
   >
     <v-expand-transition>
       <v-img
@@ -39,6 +40,16 @@
       >
         Ajouter
       </v-btn>
+      <v-btn
+        v-else="caught ? false : true"
+        class="bg-purple-accent-4"
+        @click="
+          $emit('supprimer', props.index);
+          ajouter = false;
+        "
+      >
+        Supprimer
+      </v-btn>
       <v-btn class="bg-purple-accent-4"> Voir </v-btn>
     </v-card-actions>
   </v-card>
@@ -55,8 +66,8 @@
 import { ref, onMounted } from "vue";
 import { fetchPokemon } from "@/services/produits.service.js";
 
-const props = defineProps(["produitID", "ajouter"]);
-defineEmits(["ajouter"]);
+const props = defineProps(["produitID", "ajouter", "index"]);
+defineEmits(["ajouter", "supprimer"]);
 
 // const recto = ref(true);
 const caught = ref(!props.ajouter);

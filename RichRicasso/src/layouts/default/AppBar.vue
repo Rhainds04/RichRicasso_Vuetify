@@ -6,8 +6,8 @@ const store = useAppStore();
 const drawerOpen = ref(true);
 </script>
 
-<template color="transparent">
-  <v-app-bar app flat color="primary">
+<template>
+  <v-app-bar app flat color="rgba(131,0,244,0.5)">
     <v-app-bar-title>
       <v-btn class="text-none" stacked @click="drawerOpen = !drawerOpen">
         <v-icon v-if="drawerOpen" icon="mdi-menu-open"></v-icon>
@@ -43,7 +43,6 @@ const drawerOpen = ref(true);
     <v-list>
       <v-list-item title="Home" to="/"></v-list-item>
       <v-list-item title="Produits" to="/produits"></v-list-item>
-      <v-list-item title="Contact" to="/contact"></v-list-item>
       <v-list-item title="Connexion" to="/connexion"></v-list-item>
     </v-list>
   </v-navigation-drawer>

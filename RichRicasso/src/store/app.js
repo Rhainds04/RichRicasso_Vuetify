@@ -21,6 +21,7 @@ export const useAppStore = defineStore("app", {
     removeFromCart(index) {
       // const index = this.panier.indexOf(Number(pokemonID))
       this.panier.splice(index, 1);
+      this.panier = [...this.panier];
       localStorage.setItem("panier", JSON.stringify(this.panier));
     },
     deleteCart() {

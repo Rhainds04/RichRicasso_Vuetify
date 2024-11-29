@@ -58,4 +58,11 @@ const addToCart = (id) => {
   height: auto;
   width: 50px;
 }
+
+.mainContainer {
+  background-image: url("/Images/Mainbackground.png") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 </style>
