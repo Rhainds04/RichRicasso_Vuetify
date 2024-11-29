@@ -4,6 +4,14 @@ import { useAppStore } from "@/store/app";
 
 const store = useAppStore();
 const drawerOpen = ref(true);
+
+/*
+const menuItems = [
+  { title: "Home", to: "/home" },
+  { title: "Produits", to: "/produits" },
+  { title: "Connexion", to: "/connexion" },
+];
+*/
 </script>
 
 <template>
@@ -13,7 +21,7 @@ const drawerOpen = ref(true);
         <v-icon v-if="drawerOpen" icon="mdi-menu-open"></v-icon>
         <v-icon v-else icon="mdi-menu"></v-icon>
       </v-btn>
-      <router-link to="/" style="text-decoration: none; color: white">
+      <router-link to="/home" style="text-decoration: none; color: white">
         RichRicasso
       </router-link>
     </v-app-bar-title>
@@ -41,9 +49,17 @@ const drawerOpen = ref(true);
     color="secondary"
   >
     <v-list>
-      <v-list-item title="Home" to="/"></v-list-item>
+      <v-list-item title="Home" to="/home"></v-list-item>
       <v-list-item title="Produits" to="/produits"></v-list-item>
       <v-list-item title="Connexion" to="/connexion"></v-list-item>
+      <!-- <v-list-item
+        v-for="item in menuItems"
+        :key="item.title"
+        :to="item.to"
+        :class="{ 'v-list-item--active': route?.path === item.to }"
+      >
+        {{ item.title }}
+      </v-list-item> -->
     </v-list>
   </v-navigation-drawer>
 </template>

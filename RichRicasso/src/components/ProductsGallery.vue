@@ -12,13 +12,13 @@
       <v-img
         class="white--text align-end"
         height="200px"
-        :src="`public/${produit.image}`"
+        :src="`Images/${produit.image}`"
         :alt="`Image de ${produit.name}`"
       >
       </v-img>
     </v-expand-transition>
     <v-card-title>{{ produit.name }}</v-card-title>
-    <v-card-subtitle> Taille: {{ produit.size }} </v-card-subtitle>
+    <v-card-subtitle> Couleur: {{ produit.color }} </v-card-subtitle>
     <v-card-text>Prix: {{ produit.price + "$" }}</v-card-text>
     <v-card-actions>
       <!-- TODO on pourait afficher les deux photos du produit -->

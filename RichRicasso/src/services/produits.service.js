@@ -22,7 +22,7 @@ export const fetchPokemons = async () => {
   try {
     const response = await fetch(`http://localhost:4208/api/produits`);
     const data = await response.json();
-    console.log("DB 88777RAND:", data);
+    //console.log("DB 88777RAND:", data);
     return data;
   } catch (error) {
     console.error(`Erreur lors de la récupération des Pokémons :`, error);
