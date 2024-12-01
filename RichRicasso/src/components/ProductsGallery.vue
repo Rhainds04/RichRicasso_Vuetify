@@ -50,7 +50,9 @@
       >
         Supprimer
       </v-btn>
-      <v-btn class="bg-purple-accent-4"> Voir </v-btn>
+      <v-btn class="bg-purple-accent-4" @click="viewProductDetails(produit.id)">
+        Voir
+      </v-btn>
     </v-card-actions>
   </v-card>
   <v-skeleton-loader
@@ -65,6 +67,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { fetchPokemon } from "@/services/produits.service.js";
+import { useRouter } from "vue-router";
 
 const props = defineProps(["produitID", "ajouter", "index"]);
 defineEmits(["ajouter", "supprimer"]);
@@ -87,5 +90,13 @@ onMounted(() => {
     });
   }
 });
+
+const router = useRouter();
+
+//Code pour ajouter le id au router
+const viewProductDetails = (id) => {
+  //Redirigez vers la page de details avec l'ID dans l'url
+  router.push({ name: "ProduitsDetails", params: { id } });
+};
 </script>
 <style scoped></style>

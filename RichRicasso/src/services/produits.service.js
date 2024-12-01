@@ -18,6 +18,20 @@ export const fetchPokemon = async (id) => {
   }
 };
 
+export const fetchQuantitiesById = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:4208/api/quantities/${id}`);
+    const data = await response.json();
+    console.log("DB 88777RAND:", data);
+    return data;
+  } catch (error) {
+    console.error(
+      `Erreur lors de la récupération des quantitie par le ${id} :`,
+      error
+    );
+  }
+};
+
 export const fetchPokemons = async () => {
   try {
     const response = await fetch(`http://localhost:4208/api/produits`);
