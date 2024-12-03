@@ -44,7 +44,7 @@
         v-else="caught ? false : true"
         class="bg-purple-accent-4"
         @click="
-          $emit('supprimer', props.index);
+          $emit('supprimer', props.index, produit.price);
           ajouter = false;
         "
       >

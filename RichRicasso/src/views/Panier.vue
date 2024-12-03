@@ -34,9 +34,9 @@ import Produit from "@/components/ProductsGallery.vue";
 
 const store = useAppStore();
 
-function removeFromCart(idx) {
+function removeFromCart(idx, price) {
   console.log(event.currentTarget.id);
-  store.removeFromCart(idx);
+  store.removeFromCart(idx, price);
 }
 </script>
 
