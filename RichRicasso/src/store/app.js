@@ -11,12 +11,16 @@ export const useAppStore = defineStore("app", {
         user: "Prof",
       };
     }
-    return { panier: [], user: "Prof" };
+    return { panier: [], user: "Prof", totalPrice: 0 };
   },
   actions: {
-    addToCart(produitID) {
+    addToCart(produitID, price) {
+      console.log(produitID);
+      console.log(price);
       this.panier.push(produitID);
+      this.totalPrice += parseFloat(price);
       localStorage.setItem("panier", JSON.stringify(this.panier));
+      localStorage.setItem("TotalPrice", JSON.stringify(this.totalPrice));
     },
     removeFromCart(index) {
       // const index = this.panier.indexOf(Number(pokemonID))

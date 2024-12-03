@@ -34,7 +34,7 @@
         v-if="caught ? false : true"
         class="bg-purple-accent-4"
         @click="
-          $emit('ajouter', produit.id);
+          $emit('ajouter', produit.id, produit.price);
           ajouter = true;
         "
       >
@@ -69,7 +69,7 @@ import { ref, onMounted } from "vue";
 import { fetchPokemon } from "@/services/produits.service.js";
 import { useRouter } from "vue-router";
 
-const props = defineProps(["produitID", "ajouter", "index"]);
+const props = defineProps(["produitID", "ajouter", "index", "price"]);
 defineEmits(["ajouter", "supprimer"]);
 
 // const recto = ref(true);

@@ -9,6 +9,7 @@
           <Produit
             v-for="produit in produits"
             :produitID="produit.id"
+            :price="produit.price"
             :ajouter="true"
             @ajouter="addToCart"
             :key="i"
@@ -42,9 +43,9 @@ onMounted(async () => {
 //Augmenter la quantite dans le store
 const store = useAppStore();
 
-const addToCart = (id) => {
+const addToCart = (id, price) => {
   console.log("DB 88: ", id);
-  store.addToCart(id);
+  store.addToCart(id, price);
   // console.log("DB 558: ");
 };
 </script>
