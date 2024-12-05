@@ -11,6 +11,7 @@
     </v-btn> -->
 
       <div class="d-flex flex-column flex-md-row flex-wrap flex-start ga-3">
+        <h1 v-if="store.totalPrice <= 0">Ajouter des produit</h1>
         <div v-for="(produitID, index) in store.panier" :key="pokeID">
           <Produit
             :produitID="produitID"
@@ -22,6 +23,12 @@
           />
           <!-- <v-btn color="secondary" @click="removeFromCart(index)"
           >Supprimer du panier</v-btn> -->
+        </div>
+        <div v-if="store.totalPrice > 0" class="d-flex flex-column">
+          <h2>Prix total: {{ store.totalPrice }}$</h2>
+          <v-btn href="http://localhost:4242/checkout.html"
+            >Passer a la caisse</v-btn
+          >
         </div>
       </div>
     </v-container>
