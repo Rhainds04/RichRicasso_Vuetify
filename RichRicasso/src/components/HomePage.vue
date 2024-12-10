@@ -19,7 +19,7 @@ export default {
     <v-main class="mainContainer">
       <v-container class="fill-height">
         <v-col class="justify-center d-flex flex-column">
-          <v-row class="pa-5" style="width: 100%; margin: 0 auto">
+          <v-row class="pa-5" style="width: 100%; margin: 0 auto;">
             <RichRicassoCard />
           </v-row>
           <v-row class="pa-5" style="width: 100%; margin: 0 auto;">

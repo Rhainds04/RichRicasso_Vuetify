@@ -5,13 +5,6 @@ import { useAppStore } from "@/store/app";
 const store = useAppStore();
 const drawerOpen = ref(true);
 
-/*
-const menuItems = [
-  { title: "Home", to: "/home" },
-  { title: "Produits", to: "/produits" },
-  { title: "Connexion", to: "/connexion" },
-];
-*/
 </script>
 
 <template>
@@ -52,14 +45,6 @@ const menuItems = [
       <v-list-item title="Home" to="/home"></v-list-item>
       <v-list-item title="Produits" to="/produits"></v-list-item>
       <v-list-item title="Connexion" to="/connexion"></v-list-item>
-      <!-- <v-list-item
-        v-for="item in menuItems"
-        :key="item.title"
-        :to="item.to"
-        :class="{ 'v-list-item--active': route?.path === item.to }"
-      >
-        {{ item.title }}
-      </v-list-item> -->
     </v-list>
   </v-navigation-drawer>
 </template>
