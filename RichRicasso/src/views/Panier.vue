@@ -3,7 +3,7 @@
     <v-container fluid class="d-flex flex-column flex-md-row overflow-auto">
       <!-- Colonne des produits -->
       <div class="d-flex flex-wrap flex-grow-1 gap-4">
-        <h1 v-if="store.totalPrice <= 0" class="w-100">Ajouter des produits</h1>
+        <h1  v-if="store.totalPrice <= 0" class="w-100 whiteColor">Ajouter des produits</h1>
         <div
           v-for="(produitID, index) in store.panier"
           :key="produitID"
@@ -21,7 +21,7 @@
       <!-- Colonne pour le prix total et le checkout -->
       <div
         v-if="store.totalPrice > 0"
-        class="d-flex flex-column align-items-start px-4"
+        class="d-flex flex-column align-items-start px-4 priceContainer"
         style="min-width: 300px"
       >
         <h2>Prix total: {{ store.totalPrice }}$</h2>
@@ -70,5 +70,16 @@ function removeFromCart(idx, price) {
     flex: 1 1 100%; /* Occupe toute la largeur disponible */
     max-width: 100%;
   }
+}
+
+.whiteColor{
+  color: white;
+}
+
+.priceContainer{
+  background-color: white;
+  opacity: .8;
+  border-radius: 10px;
+  max-height: 400px;
 }
 </style>
