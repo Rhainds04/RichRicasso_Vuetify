@@ -1,35 +1,33 @@
-<!-- TODO: corriger cecu plus tard -->
 <template>
   <v-content>
-    <v-container
-      fluid
-      class="d-flex flex-column flex-md-row flex-start overflow-auto"
-    >
-      <!-- TODO: btn pour effacer tout les produits du panier -->
-      <!-- <v-btn @click="store.deleteCart()" color="error" class="ma-1">
-      Supprimer le panier
-    </v-btn> -->
-
-      <div class="d-flex flex-column flex-md-row flex-wrap flex-start ga-3">
-        <h1 v-if="store.totalPrice <= 0">Ajouter des produit</h1>
-        <div v-for="(produitID, index) in store.panier" :key="pokeID">
+    <v-container fluid class="d-flex flex-column flex-md-row overflow-auto">
+      <!-- Colonne des produits -->
+      <div class="d-flex flex-wrap flex-grow-1 gap-4">
+        <h1 v-if="store.totalPrice <= 0" class="w-100">Ajouter des produits</h1>
+        <div
+          v-for="(produitID, index) in store.panier"
+          :key="produitID"
+          class="product-item"
+        >
           <Produit
             :produitID="produitID"
             @supprimer="removeFromCart"
             :index="index"
             :ajouter="false"
-            yes
-            :key="produitID"
           />
-          <!-- <v-btn color="secondary" @click="removeFromCart(index)"
-          >Supprimer du panier</v-btn> -->
         </div>
-        <div v-if="store.totalPrice > 0" class="d-flex flex-column">
-          <h2>Prix total: {{ store.totalPrice }}$</h2>
-          <v-btn href="http://localhost:4242/checkout.html"
-            >Passer a la caisse</v-btn
-          >
-        </div>
+      </div>
+
+      <!-- Colonne pour le prix total et le checkout -->
+      <div
+        v-if="store.totalPrice > 0"
+        class="d-flex flex-column align-items-start px-4"
+        style="min-width: 300px"
+      >
+        <h2>Prix total: {{ store.totalPrice }}$</h2>
+        <v-btn href="http://localhost:4242/checkout.html" color="primary">
+          Passer à la caisse
+        </v-btn>
       </div>
     </v-container>
   </v-content>
@@ -42,9 +40,35 @@ import Produit from "@/components/ProductsGallery.vue";
 const store = useAppStore();
 
 function removeFromCart(idx, price) {
-  console.log(event.currentTarget.id);
   store.removeFromCart(idx, price);
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Espacement entre les éléments */
+.v-container {
+  gap: 16px;
+}
+
+/* Style pour aligner les produits horizontalement */
+.product-item {
+  flex: 1 1 calc(33.333% - 16px); /* Occupe un tiers de la largeur disponible */
+  max-width: calc(33.333% - 16px);
+  box-sizing: border-box;
+}
+
+/* Pour les petits écrans, ajuster la largeur */
+@media (max-width: 768px) {
+  .product-item {
+    flex: 1 1 calc(50% - 16px); /* Occupe la moitié de la largeur disponible */
+    max-width: calc(50% - 16px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    flex: 1 1 100%; /* Occupe toute la largeur disponible */
+    max-width: 100%;
+  }
+}
+</style>
