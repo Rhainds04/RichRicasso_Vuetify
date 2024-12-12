@@ -2,16 +2,14 @@
   <v-card
     :id="props.produitID"
     v-if="produit.name"
-    class="mx-auto"
-    width="250"
-    elevation="12"
-    outlined
+    class="mx-auto mb-5"
+    width="280"
     color="rgba(255,255,255,0.5)"
   >
     <v-expand-transition>
       <v-img
         class="white--text align-end"
-        height="200px"
+        height="300px"
         :src="`Images/${produit.image}`"
         :alt="`Image de ${produit.name}`"
       >

@@ -1,4 +1,5 @@
 import Produit from "@/models/Produit.js";
+
 export const fetchRandomPokemon = async () => {
   const randId = Math.floor(Math.random() * 151) + 1;
   console.log("DB 88777RAND:", randId);

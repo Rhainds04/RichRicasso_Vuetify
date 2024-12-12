@@ -62,6 +62,8 @@
   
   <script setup>
   import { ref } from 'vue';
+  import { createUser } from "@/services/users.service.js";
+
   
   // Tab state
   const activeTab = ref(0);
@@ -86,14 +88,27 @@
     //implementer le login
   };
   
-  // Handle signup
-  const handleSignup = () => {
-    console.log('Signup form submitted:', signupForm.value);
-    if (signupForm.value.password !== signupForm.value.confirmPassword) {
-      alert('Passwords do not match!');
-      //implementer le signup
-    }
-  };
+// Handle signup
+const handleSignup = async () => {
+  console.log('Signup form submitted:', signupForm.value);
+  if (signupForm.value.password !== signupForm.value.confirmPassword) {
+    alert('Passwords do not match!');
+    return;
+  }
+  try {
+    const userData = {
+      name: signupForm.value.name,
+      email: signupForm.value.email,
+      password: signupForm.value.password,
+    };
+    const response = await createUser(userData);
+    console.log('User created:', response);
+    // Handle successful user creation (e.g., redirect to login page)
+  } catch (error) {
+    console.error('Error creating user:', error);
+    // Handle error (e.g., display error message)
+  }
+};
   </script>
   
   <style scoped>
