@@ -56,6 +56,13 @@
               type="password"
               required
             ></v-text-field>
+            
+            <!-- Newsletter Checkbox -->
+            <v-checkbox
+              v-model="signupForm.newsLetter"
+              label="Subscribe to our newsletter"
+            ></v-checkbox>
+            
             <v-btn color="primary" type="submit" block>Sign Up</v-btn>
           </v-form>
         </v-tab-item>
@@ -83,12 +90,12 @@ const signupForm = ref({
   email: "",
   password: "",
   confirmPassword: "",
+  newsLetter: false
 });
 
 // Handle login
 const handleLogin = async () => {
   console.log("Login form submitted:", loginForm.value);
-  //implementer le login
 
   const userData = {
     email: loginForm.value.email,
@@ -99,9 +106,8 @@ const handleLogin = async () => {
     const response = await loginUser(userData);
     console.log("Login successful:", response);
 
-    //Handle succesful login
   } catch (error) {
-    console.error("Erreur Logging");
+    console.error("Error Logging in:", error);
   }
 };
 
@@ -117,14 +123,12 @@ const handleSignup = async () => {
       name: signupForm.value.name,
       email: signupForm.value.email,
       password: signupForm.value.password,
-      newsLetter: 0,
+      newsLetter: signupForm.value.newsLetter
     };
     const response = await createUser(userData);
     console.log("User created:", response);
-    // Handle successful user creation (e.g., redirect to login page)
   } catch (error) {
     console.error("Error creating user:", error);
-    // Handle error (e.g., display error message)
   }
 };
 </script>
