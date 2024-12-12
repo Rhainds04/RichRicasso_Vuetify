@@ -1,23 +1,34 @@
-import Produit from "@/models/User.js";
-
-export const createUser = async (user) => {
+// users.service.js
+async function createUser(user) {
   try {
-    const formData = new FormData();
-    formData.append("name", user.name);
-    formData.append("email", user.email);
-    formData.append("password", user.password);
-
     const response = await fetch("http://localhost:4208/api/utilisateurs", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
-      body: formData,
+      body: jsonData,
     });
+    if (!response.ok) {
+      throw new Error(`Erreur ${response.status}: ${response.statusText}`);
+    }
     const data = await response.json();
     console.log("DB 88777RAND:", data);
     return data;
   } catch (error) {
     console.error("Erreur lors de la création du User :", error);
+    throw error;
+  }
+}
+
+export const fetchUsers = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:4208/api/utilisateurs`);
+    const data = await response.json();
+    console.log("DB 88777RAND:", data);
+    return new Produit(data);
+  } catch (error) {
+    console.error(`Erreur lors de la récupération du User ${id} :`, error);
   }
 };
+
+export { createUser };

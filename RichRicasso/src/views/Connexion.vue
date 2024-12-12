@@ -85,7 +85,6 @@
   // Handle login
   const handleLogin = () => {
     console.log('Login form submitted:', loginForm.value);
-    //implementer le login
   };
   
 // Handle signup

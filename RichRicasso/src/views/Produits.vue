@@ -50,20 +50,4 @@ const addToCart = (id, price) => {
 };
 </script>
 
-<style scoped>
-.slider {
-  width: 80px;
-}
-
-.slider >>> .v-slider {
-  height: auto;
-  width: 50px;
-}
-
-.mainContainer {
-  background-image: url("/Images/Mainbackground.png") !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-</style>
+<style scoped></style>
